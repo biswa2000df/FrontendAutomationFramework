@@ -1,0 +1,107 @@
+<div class="mat-elevation-z8 table-center" [ngClass]="showDialog || spinnerDisabled? 'blur-background':''"
+  *ngIf="!showSubmitWarning">
+  <!-- <h1 class="table-header">Automation Framework</h1> -->
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container *ngFor="let item of displayedColumns">
+      <ng-container *ngIf="item !='id' && item !='edit' && item !='delete' && item !='add' ">
+        <ng-container [matColumnDef]="item">
+          <th mat-header-cell *matHeaderCellDef> {{item}} </th>
+          <td mat-cell *matCellDef="let element ;let i = index">
+            <ng-container *ngIf="i != editedRowIndex">
+              {{columnArray[i][item]}}
+            </ng-container>
+
+            <ng-container *ngIf="i == editedRowIndex">
+              <mat-form-field class="input-maragin" appearance="outline">
+                <input matInput [placeholder]="item" [(ngModel)]="columnArray[i][item]">
+              </mat-form-field>
+            </ng-container>
+          </td>
+
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="item =='id'">
+        <ng-container [matColumnDef]="item">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element ;let i = index"> {{ columnArray[i][item] }} </td>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="item =='edit'">
+        <ng-container [matColumnDef]="item">
+          <th mat-header-cell *matHeaderCellDef> </th>
+          <td class="edit-cell-width " mat-cell *matCellDef="let element, let i = index">
+            <ng-container *ngIf="i !== editedRowIndex">
+              <button [disabled]="!enableDrag" mat-mini-fab color="primary" (click)="toggleEditMode(i, element)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </ng-container>
+            <button mat-mini-fab color="primary" *ngIf="i === editedRowIndex" (click)="saveChanges(i, element)">
+              <mat-icon>done</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="item =='add'">
+        <ng-container [matColumnDef]="item">
+          <th mat-header-cell *matHeaderCellDef>
+            <button mat-mini-fab color="primary" let i=index *ngIf="columnArray.length == 0" (click)="addRow(i)">
+              <mat-icon>add</mat-icon>
+            </button>
+          </th>
+          <td class="edit-cell-width " mat-cell *matCellDef="let element, let i = index">
+
+          </td>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="item =='delete'">
+        <ng-container [matColumnDef]="item">
+          <th mat-header-cell *matHeaderCellDef> </th>
+          <td mat-cell *matCellDef="let element ;let i = index">
+            <ng-container *ngIf="i === editedRowIndex">
+              <button mat-mini-fab color="primary" (click)="cancelEdit()">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </ng-container>
+          </td>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+  <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator> -->
+
+  <div class="example-button-row submit-btn">
+    <button mat-raised-button color="primary" [disabled]="!enableDrag || showDialog || spinnerDisabled" (click)="submit()">Submit</button>
+  </div>
+</div>
+
+<!-- Sure Submit Pop-up -->
+<div class="modal dialog-container" *ngIf="showDialog">
+  <div class="modal-header">
+    <h3>Are you sure want to submit the data?</h3>
+  </div>
+  <div class="btn">
+    <button mat-raised-button color="primary" (click)="submitData()">Yes</button>
+    <button mat-raised-button color="warn" (click)="closePopup()">No</button>
+  </div>
+
+</div>
+
+<div class="modal" *ngIf="showSubmitWarning">
+  <div class="modal-header">
+    <h1 class="warnign-text">Please submit sheet 1 data to prcceed!!</h1>
+  </div>
+</div>
+
+<mat-spinner class="spinner-container" color="primary" [diameter]="45" *ngIf="spinnerDisabled"></mat-spinner>

@@ -1,0 +1,190 @@
+<div class="mat-elevation-z8 table-center" [ngClass]="showDialog || spinnerDisabled? 'blur-background':''">
+  <!-- <h1 class="table-header">Automation Framework</h1> -->
+  <table mat-table [dataSource]="dataSource" cdkDropList (cdkDropListDropped)="dropTable($event)"
+    cdkDropListData="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="srno">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element ;let i = index"> {{ serialNumber + i + 1 }} </td>
+    </ng-container>
+
+    <!-- Run Status -->
+    <ng-container matColumnDef="runStatus">
+      <th mat-header-cell *matHeaderCellDef> Run Status </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <ng-container *ngIf="i != editedRowIndex">
+          {{ element.runStatus }}
+        </ng-container>
+
+        <ng-container *ngIf="i == editedRowIndex">
+          <mat-form-field class="input-maragin" appearance="outline">
+            <input matInput placeholder="Run Status" [(ngModel)]="runStatus">
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+
+    <!-- Browser -->
+    <ng-container matColumnDef="browser">
+      <th mat-header-cell *matHeaderCellDef> Browser </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <ng-container *ngIf="i != editedRowIndex">
+          {{ element.browser }}
+        </ng-container>
+
+        <ng-container *ngIf="i == editedRowIndex">
+          <mat-form-field class="input-maragin">
+            <mat-select [(ngModel)]="browser" placeholder="Select Browser" disableRipple>
+              <mat-option *ngFor="let item of browserData" [value]="item">{{item}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- <mat-form-field class="input-maragin" appearance="outline">
+            <input matInput placeholder="Browser" [(ngModel)]="browser">
+          </mat-form-field> -->
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Application ID -->
+    <ng-container matColumnDef="applicationID">
+      <th mat-header-cell *matHeaderCellDef> Application ID </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <ng-container *ngIf="i != editedRowIndex">
+          {{ element.applicationID }}
+        </ng-container>
+
+        <ng-container *ngIf="i == editedRowIndex">
+          <mat-form-field class="input-maragin" appearance="outline">
+            <input matInput placeholder="Application ID" [(ngModel)]="applicationID">
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+
+    <!-- module -->
+    <ng-container matColumnDef="module">
+      <th mat-header-cell *matHeaderCellDef> Module </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <ng-container *ngIf="i != editedRowIndex">
+          {{ element.module }}
+        </ng-container>
+
+        <ng-container *ngIf="i == editedRowIndex">
+          <mat-form-field class="input-maragin" appearance="outline">
+            <input matInput placeholder="Module" [(ngModel)]="module">
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Report Type-->
+    <ng-container matColumnDef="reportType">
+      <th mat-header-cell *matHeaderCellDef> Report Type </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <ng-container *ngIf="i != editedRowIndex">
+          {{ element.reportType }}
+        </ng-container>
+
+        <ng-container *ngIf="i == editedRowIndex">
+          <mat-form-field class="input-maragin" appearance="outline">
+            <input matInput placeholder="Report Type" [(ngModel)]="reportType">
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Process -->
+    <ng-container matColumnDef="process1">
+      <th mat-header-cell *matHeaderCellDef> Process </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <ng-container *ngIf="i != editedRowIndex">
+          {{ element.process1 }}
+        </ng-container>
+
+        <ng-container *ngIf="i == editedRowIndex">
+          <mat-form-field class="input-maragin" appearance="outline">
+            <input matInput placeholder="Process" [(ngModel)]="process1">
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="add">
+      <th mat-header-cell *matHeaderCellDef>Perform </th>
+      <td class="" mat-cell *matCellDef="let i = index">
+        <button [disabled]="!enableDrag" mat-mini-fab color="primary" *ngIf="i != editedRowIndex" (click)="addRow(i)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>
+        <button mat-mini-fab color="primary" *ngIf="mainTableData.length == 0" (click)="addRow(-1)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </th>
+      <td class="p-0" mat-cell *matCellDef="let i = index">
+        <button [disabled]="!enableDrag" mat-mini-fab color="primary" *ngIf="i != editedRowIndex"
+          (click)="deleteRow(serialNumber + i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" *ngIf="i === editedRowIndex" (click)="saveChanges(serialNumber + i)">
+          <mat-icon>done</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td class="edit-cell-width " mat-cell *matCellDef="let element, let i = index">
+        <ng-container *ngIf="i !== editedRowIndex">
+          <button [disabled]="!enableDrag" mat-mini-fab color="primary" (click)="toggleEditMode(i, element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </ng-container>
+        <ng-container *ngIf="i === editedRowIndex">
+          <!-- <button mat-mini-fab color="primary" (click)="saveChanges(serialNumber + i)">
+            <mat-icon>done</mat-icon>
+          </button>
+          &nbsp; -->
+          <button mat-mini-fab color="primary" (click)="cancelEdit(i, element)">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </ng-container>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" cdkDrag [cdkDragData]="row"
+      [cdkDragDisabled]="!enableDrag"></tr>
+  </table>
+
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>
+
+  <div class="example-button-row submit-btn">
+    <button mat-raised-button color="primary"
+      [disabled]="!enableDrag || showDialog || spinnerDisabled|| mainTableData.length == 0"
+      (click)="submit()">Submit</button>
+  </div>
+</div>
+
+<!-- Sure Submit Pop-up -->
+<div class="modal dialog-container" *ngIf="showDialog">
+  <div class="modal-header">
+    <h3>Are you sure want to submit the data?</h3>
+  </div>
+  <div class="btn">
+    <button mat-raised-button color="primary" (click)="submitData()">Yes</button>
+    <button mat-raised-button color="warn" (click)="closePopup()">No</button>
+  </div>
+
+</div>
+
+<mat-spinner class="spinner-container" color="primary" [diameter]="45" *ngIf="spinnerDisabled"></mat-spinner>

@@ -1,0 +1,50 @@
+<div class="bg-img">
+  <div class="main-div">
+    <mat-card class="card">
+      <mat-card-header class="text-center">
+        <mat-card-title> Account Login </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="card-padding">
+        <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>SAP Code</mat-label>
+            <input type="text" matInput placeholder="code" formControlName="sapCode" maxlength="9">
+          </mat-form-field>
+          <mat-error class="forgetpswd"
+            *ngIf="loginForm.get('sapCode')?.touched && loginForm.get('sapCode')?.hasError('pattern')">
+            Please enter a valid SAP Code.
+          </mat-error>
+          <mat-error class="forgetpswd"
+            *ngIf="loginForm.get('sapCode')?.touched && loginForm.get('sapCode')?.hasError('required')">
+            SAP Code is Required.
+          </mat-error>
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password">
+          </mat-form-field>
+          <mat-error class="forgetpswd"
+            *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('pattern')">
+            Password must contain 1 capital letter, 1 special character and 1 number.
+          </mat-error>
+          <mat-error class="forgetpswd"
+            *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')">
+            Password is Required.
+          </mat-error>
+          <a class="pointer forgetpswd" (click)="forgetPassword()">Forget Password?</a>
+          <mat-card-actions class="text-center padding-bottom">
+            <button type="submit" mat-raised-button color="primary"
+              [disabled]="loginForm.invalid || isBUttonClicked">Login</button>
+          </mat-card-actions>
+        </form>
+      </mat-card-content>
+      <!-- <mat-card-actions class="text-center padding-bottom">
+        <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid"
+          (click)="onSubmit()">Login</button>
+      </mat-card-actions> -->
+      <span class="text-center padding-bottom">Don't have account? <a class="pointer" (click)="gotoSignUp()"> Create
+          account </a></span>
+
+          <button type="submit" mat-raised-button color="primary" (click)="openExtensionTab()">Open Extension</button>
+    </mat-card>
+  </div>
+</div>

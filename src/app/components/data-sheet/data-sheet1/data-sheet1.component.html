@@ -1,0 +1,272 @@
+
+
+ 
+
+<div class="mat-elevation-z8 table-center" [ngClass]="showDialog || spinnerDisabled? 'blur-background':''">
+  <!-- <h1 class="table-header">Automation Framework</h1> -->
+  <table mat-table [dataSource]="dataSource" cdkDropList (cdkDropListDropped)="dropTable($event)"
+    cdkDropListData="dataSource">
+
+    
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="srno">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element ;let i = index"> {{ serialNumber + i + 1 }} </td>
+    </ng-container>
+
+    <!-- module -->
+    <ng-container matColumnDef="module">
+      <th mat-header-cell *matHeaderCellDef> Module </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <ng-container *ngIf="i != editedRowIndex">
+          {{ element.module }}
+        </ng-container>
+
+        <ng-container *ngIf="i == editedRowIndex">
+          <mat-form-field class="input-maragin" appearance="outline">
+            <input matInput placeholder="Module" [(ngModel)]="module">
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Page Name -->
+    <ng-container matColumnDef="pageName">
+      <th mat-header-cell *matHeaderCellDef> Page Name </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <ng-container *ngIf="i != editedRowIndex">
+          {{ element.pageName }}
+        </ng-container>
+
+        <ng-container *ngIf="i == editedRowIndex">
+          <mat-form-field class="input-maragin" appearance="outline">
+            <input matInput placeholder="Page Name" [(ngModel)]="pageName">
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Run Status -->
+    <ng-container matColumnDef="runStatus">
+      <th mat-header-cell *matHeaderCellDef> Run Status </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <ng-container *ngIf="i != editedRowIndex">
+          {{ element.runStatus }}
+        </ng-container>
+
+        <ng-container *ngIf="i == editedRowIndex">
+          <mat-form-field class="input-maragin" appearance="outline">
+            <input matInput placeholder="Run Status" [(ngModel)]="runStatus">
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Property Name -->
+    <ng-container matColumnDef="propertyName">
+      <th mat-header-cell *matHeaderCellDef> Property Name </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <ng-container *ngIf="i != editedRowIndex">
+          {{ element.propertyName }}
+        </ng-container>
+
+        <ng-container *ngIf="i == editedRowIndex">
+          <mat-form-field class="input-maragin" appearance="outline">
+            <input matInput placeholder="Property Name" [(ngModel)]="propertyName">
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Property Value -->
+    <ng-container matColumnDef="propertyValue">
+      <th mat-header-cell *matHeaderCellDef> Property Value </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <ng-container *ngIf="i != editedRowIndex">
+          {{ element.propertyValue }}
+        </ng-container>
+
+        <ng-container *ngIf="i == editedRowIndex">
+          <mat-form-field class="input-maragin" appearance="outline">
+            <input matInput placeholder="Property Value" [(ngModel)]="propertyValue">
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Datafield -->
+    <ng-container matColumnDef="datafield">
+      <th mat-header-cell *matHeaderCellDef> Datafield </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <ng-container *ngIf="i != editedRowIndex">
+          {{ element.datafield }}
+        </ng-container>
+
+        <ng-container *ngIf="i == editedRowIndex">
+          <mat-form-field class="input-maragin" appearance="outline">
+            <input matInput placeholder="Datafield" [(ngModel)]="datafield">
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Action -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <ng-container *ngIf="i != editedRowIndex">
+          {{ element.action }}
+        </ng-container>
+
+        <ng-container *ngIf="i == editedRowIndex">
+          <mat-form-field class="input-maragin" appearance="outline">
+            <input matInput placeholder="Action" [(ngModel)]="action">
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+
+    <!-- Action Type-->
+    <ng-container matColumnDef="action_Type">
+      <th mat-header-cell *matHeaderCellDef> Action Type </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <ng-container *ngIf="i != editedRowIndex">
+          {{ element.action_Type }}
+        </ng-container>
+
+        <ng-container *ngIf="i == editedRowIndex">
+          <mat-form-field class="input-maragin" appearance="outline">
+            <input matInput placeholder="Action Type" [(ngModel)]="action_Type">
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Test Case-->
+    <ng-container matColumnDef="test_Case">
+      <th mat-header-cell *matHeaderCellDef> Test Case </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <ng-container *ngIf="i != editedRowIndex">
+          {{ element.test_Case }}
+        </ng-container>
+
+        <ng-container *ngIf="i == editedRowIndex">
+          <mat-form-field class="input-maragin" appearance="outline">
+            <input matInput placeholder="Test Case" [(ngModel)]="test_Case">
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Description-->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <ng-container *ngIf="i != editedRowIndex">
+          {{ element.description }}
+        </ng-container>
+
+        <ng-container *ngIf="i == editedRowIndex">
+          <mat-form-field class="input-maragin" appearance="outline">
+            <input matInput placeholder="Description" [(ngModel)]="description">
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Scenario ID-->
+    <ng-container matColumnDef="scenario_ID">
+      <th mat-header-cell *matHeaderCellDef> Scenario ID </th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <ng-container *ngIf="i != editedRowIndex">
+          {{ element.scenario_ID }}
+        </ng-container>
+
+        <ng-container *ngIf="i == editedRowIndex">
+          <mat-form-field class="input-maragin" appearance="outline">
+            <input matInput placeholder="Scenario ID" [(ngModel)]="scenario_ID">
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="add">
+      <th mat-header-cell *matHeaderCellDef>Perform </th>
+      <td class="" mat-cell *matCellDef="let i = index">
+        <button [disabled]="!enableDrag" mat-mini-fab color="primary" *ngIf="i != editedRowIndex" (click)="addRow(i)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>
+        <button mat-mini-fab color="primary" *ngIf="mainTableData && mainTableData.length == 0" (click)="addRow(-1)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </th>
+      <td class="p-0" mat-cell *matCellDef="let i = index">
+        <button [disabled]="!enableDrag" mat-mini-fab color="primary" *ngIf="i != editedRowIndex"
+          (click)="deleteRow(serialNumber + i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" *ngIf="i === editedRowIndex" (click)="saveChanges(serialNumber + i)">
+          <mat-icon>done</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td class="edit-cell-width " mat-cell *matCellDef="let element, let i = index">
+        <ng-container *ngIf="i !== editedRowIndex">
+          <button [disabled]="!enableDrag" mat-mini-fab color="primary" (click)="toggleEditMode(i, element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </ng-container>
+        <ng-container *ngIf="i === editedRowIndex">
+          <!-- <button mat-mini-fab color="primary" (click)="saveChanges(serialNumber + i)">
+            <mat-icon>done</mat-icon>
+          </button>
+          &nbsp; -->
+          <button mat-mini-fab color="primary" (click)="cancelEdit(i, element)">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </ng-container>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" cdkDrag [cdkDragData]="row"
+      [cdkDragDisabled]="!enableDrag"></tr>
+  </table>
+
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100]" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>
+
+  <div class="example-button-row submit-btn">
+    <button mat-raised-button color="primary"
+      [disabled]="!enableDrag || showDialog || spinnerDisabled || (mainTableData && mainTableData.length == 0)"
+      (click)="submit()">Submit</button>
+  </div>
+</div>
+
+<!-- Sure Submit Pop-up -->
+<div class="modal dialog-container" *ngIf="showDialog">
+  <div class="modal-header">
+    <h3>Are you sure want to submit the data?</h3>
+  </div>
+  <div class="btn">
+    <button mat-raised-button color="primary" (click)="submitData()">Yes</button>
+    <button mat-raised-button color="warn" (click)="closePopup()">No</button>
+  </div>
+
+
+</div>
+
+<mat-spinner class="spinner-container" color="primary" [diameter]="45" *ngIf="spinnerDisabled"></mat-spinner>

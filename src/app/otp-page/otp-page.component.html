@@ -1,0 +1,20 @@
+<div class="bg-img">
+  <div class="main-div">
+    <mat-card class="card">
+      <mat-card-header class="text-center">
+        <mat-card-title> Enter OTP </mat-card-title>
+      </mat-card-header>
+      <span class="padding-top text-center">Check your email for OTP</span><br>
+      <mat-card-content class="card-padding">
+        <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="config"></ng-otp-input>
+      </mat-card-content>
+
+      <mat-card-actions class="text-center padding-bottom">
+        <button type="submit" mat-raised-button color="primary" [disabled]="!isOtpValid || isBUttonClicked" (click)="onOtpSubmit()">Verify
+          OTP</button>
+      </mat-card-actions>
+      <span class="text-center padding-bottom">Didn't recieved OTP? <a class="pointer" (click)="resendOTP()"> Resend OTP
+        </a></span>
+    </mat-card>
+  </div>
+</div>

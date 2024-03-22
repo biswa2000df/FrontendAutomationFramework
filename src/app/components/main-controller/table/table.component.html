@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="container bg-img">
+  <div class="landing-page">
+    <!-- <div class="example-button-row result-btn">
+      <button mat-raised-button color="primary" (click)="gotoResultPage()">Results Page</button>
+    </div> -->
+    <h1 class="page-header">MAIN CONTROLLER</h1>
+    <!-- <div class="example-button-row goto-btn">
+      <button mat-raised-button color="primary" (click)="gotoDataSheet()">Go to Data Sheet</button>
+    </div> -->
+  </div>
+
+  <mat-tab-group class="table-padding">
+    <mat-tab label="SHEET 1">
+      <div class="">
+        <app-main-sheet1></app-main-sheet1>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="SHEET 2">
+      <div class="content-center">
+        <app-main-sheet2></app-main-sheet2>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="SHEET 3">
+      <div class="">
+        <app-main-sheet3></app-main-sheet3>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+</div>

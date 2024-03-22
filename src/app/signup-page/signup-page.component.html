@@ -1,0 +1,85 @@
+<div class="bg-img">
+  <div class="main-div">
+    <mat-card class="card">
+      <mat-card-header class="text-center">
+        <mat-card-title> Register Account </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="card-padding">
+        <form class="example-form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input type="text" matInput placeholder="Name" formControlName="name">
+          </mat-form-field>
+          <mat-error class="forgetpswd"
+            *ngIf="signUpForm.get('name')?.touched && signUpForm.get('name')?.hasError('pattern')">
+            Please enter a valid Name.
+          </mat-error>
+          <mat-error class="forgetpswd"
+            *ngIf="signUpForm.get('name')?.touched && signUpForm.get('name')?.hasError('required')">
+            Name is Required.
+          </mat-error>
+
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Username</mat-label>
+            <input type="text" matInput placeholder="Username" formControlName="username">
+          </mat-form-field>
+          <mat-error class="forgetpswd"
+            *ngIf="signUpForm.get('username')?.touched && signUpForm.get('username')?.hasError('pattern')">
+            Please enter a valid Username.
+          </mat-error>
+          <mat-error class="forgetpswd"
+            *ngIf="signUpForm.get('username')?.touched && signUpForm.get('username')?.hasError('required')">
+            Username is Required.
+          </mat-error>
+
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="mailId">
+          </mat-form-field>
+          <mat-error class="forgetpswd"
+            *ngIf="signUpForm.get('mailId')?.touched && signUpForm.get('mailId')?.hasError('pattern')">
+            Please enter a valid Email.
+          </mat-error>
+          <mat-error class="forgetpswd"
+            *ngIf="signUpForm.get('mailId')?.touched && signUpForm.get('mailId')?.hasError('required')">
+            Email is Required.
+          </mat-error>
+
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput placeholder="Password" formControlName="password">
+          </mat-form-field>
+          <mat-error class="forgetpswd"
+            *ngIf="signUpForm.get('password')?.touched && signUpForm.get('password')?.hasError('pattern')">
+            Password must contain 1 capital letter, 1 special character and 1 number.
+          </mat-error>
+          <mat-error class="forgetpswd"
+            *ngIf="signUpForm.get('password')?.touched && signUpForm.get('password')?.hasError('required')">
+            Password is Required.
+          </mat-error>
+
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input type="password" matInput placeholder="Confirm Password" formControlName="confirmPassword"
+              (keyup)="matchPassword($event)">
+          </mat-form-field>
+          <mat-error class="forgetpswd" *ngIf="signUpForm.get('confirmPassword')?.touched && !isPasswordMatch">
+            Password does not match.
+          </mat-error>
+          <mat-error class="forgetpswd"
+            *ngIf="signUpForm.get('confirmPassword')?.touched && signUpForm.get('confirmPassword')?.hasError('required')">
+            Confirm Password is Required.
+          </mat-error>
+
+          <mat-card-actions class="text-center padding-bottom">
+            <button mat-raised-button color="primary" [disabled]="signUpForm.invalid || !isPasswordMatch || isBUttonClicked">Sign
+              Up</button>
+          </mat-card-actions>
+        </form>
+      </mat-card-content>
+
+      <span class="text-center padding-bottom">Already have account? <a class="pointer" (click)="gotoLogIn()"> Log In
+        </a></span>
+    </mat-card>
+  </div>
+</div>

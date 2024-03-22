@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="container bg-img">
+  <div class="landing-page">
+    <h1 class="page-header">DATA SHEET</h1>
+    <!-- <div class="example-button-row goto-btn">
+      <button mat-raised-button color="primary" (click)="gotoMainController()">Go to Main Controller</button>
+    </div>
+    <div class="example-button-row goto-btn1">
+      <button mat-raised-button color="primary" (click)="resultPage()">Result Page</button>
+    </div> -->
+    <div class="example-button-row goto-btn2">
+      <span>Select Script File</span> <!-- New line added -->
+      <mat-form-field class="input-margin">
+        <mat-select (selectionChange)="fileSelect($event)" placeholder=".XLSX File" disableRipple>
+          <mat-option *ngFor="let item of dropDownList" [value]="item">{{item}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>    
+  </div>
+
+  <mat-tab-group class="table-padding mat-primary" (selectedTabChange)="tabClick($event)" *ngIf="sheet1Data && showTable">
+    <mat-tab label="TEST SCRIPT" class="test-script">
+      <div class="">
+        <app-data-sheet1 [sheet1Data]="sheet1Data"></app-data-sheet1>
+      </div>
+    </mat-tab>
+  
+    <mat-tab label="TEST DATA" class="test-data">
+      <div class="">
+        <app-data-sheet2 [sheetArray]="sheetArray"></app-data-sheet2>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+  
+
+     <!-- File Upload Section -->
+     <div class="file-upload">
+      <label for="fileInput" class="custom-file-upload">
+        <span>Upload Generated IDE File</span>
+        <input id="fileInput" type="file" (change)="onFileSelected($event)">
+      </label>
+    </div>
+    
+</div>

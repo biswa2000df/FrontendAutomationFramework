@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.table {
+  width: 100%;
+}
+
+.mat-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.p-0 {
+  padding: 0%;
+}
+
+.table-header {
+  text-align: center;
+}
+
+.page-header {
+  margin-top: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.table-center {
+  margin: 0.5rem 0.5rem;
+  padding: 0.5rem;
+  width: fit-content;
+}
+
+.table-cell-width {
+  width: 100%;
+}
+
+.edit-cell-width {
+  /* width: 100%; */
+}
+
+.input-maragin {
+  position: relative;
+  top: 10px;
+}
+
+::ng-deep .cdk-drag-preview {
+  display: table;
+  padding: 0rem 0rem 0.5rem 0rem;
+  background-color: powderblue !important;
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+::ng-deep .cdk-drag-placeholder {
+  opacity: 0;
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.submit-btn {
+  display: flex;
+  justify-content: end;
+  margin-top: 1rem;
+}
+
+.btn {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2rem;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+}
+
+.blur-background {
+  filter: blur(3px);
+  /* Adjust the blur intensity as needed */
+}
+
+.mat-button.mat-success,
+.mat-raised-button.mat-success {
+  background-color: rgb(120, 223, 120);
+}
+
+.dialog-container {
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 10px 0px;
+  background-color: rgba(255, 255, 255, 0.9);
+  /* Add a semi-transparent background */
+  border-radius: 8px;
+  width: 20%;
+  padding: 20px;
+  background-color: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  /* Apply the backdrop blur effect */
+}
+
+.spinner-container {
+  /* Add a semi-transparent background */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  /* Apply the backdrop blur effect */
+}
+
+.mat-snack-bar-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  background-color: aqua;
+}
+
+.warnign-text {
+  color: red;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif !important;
+  margin-top: 10rem;
+}

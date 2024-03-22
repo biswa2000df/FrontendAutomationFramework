@@ -1,0 +1,126 @@
+.container {
+  /* margin: 1rem; */
+}
+
+.page-header {
+  color: white; /* Set text color to white */
+}
+
+.bg-img {
+  background-image: url('../../../../assets/Automation1.png');
+  background-size: cover;
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  height: 100%;
+  /* min-height: calc(130vh - 250px); */
+}
+
+.landing-page {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.goto-btn {
+  position: absolute;
+  left: 1%;
+  margin-top: 1rem;
+}
+
+.goto-btn1 {
+  position: absolute;
+  left: 14%;
+  margin-top: 1rem;
+}
+
+.goto-btn2 {
+  position: absolute;
+  left: 2%;
+  margin-top: 1rem;
+}
+
+/* Set the width of the mat-select dropdown */
+.mat-select-panel {
+  width: 200px;
+}
+
+/* Set the width of the mat-option elements within the dropdown */
+.mat-option {
+  min-width: 200px;
+}
+
+.table-header {
+  text-align: center;
+}
+
+.page-header {
+  margin-top: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.table-padding {
+  padding-left: 2%;
+  padding-right: 2%;
+  margin-top: 30px; 
+}
+
+/* .content-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+} */
+
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  position: relative;
+  background-color: white;
+}
+
+.custom-file-upload span {
+  display: inline-block;
+  margin-left: 10px; /* Adjust as needed */
+  font-weight: bold;
+}
+
+.custom-file-upload input[type="file"] {
+  display: none;
+}
+
+.file-upload {
+  position: absolute;
+  top: 10%; /* Adjust as needed */
+  right: 2%; /* Adjust as needed */
+}
+
+.example-button-row {
+  display: flex;
+  align-items: center;
+}
+
+.goto-btn2 {
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.goto-btn2 span {
+  margin-right: 10px; /* Adjust margin as needed */
+  font-weight: bold; /* Adjust font weight as needed */
+  font-size: 16px; /* Adjust font size as needed */
+}
+
+.mat-form-field {
+  width: 300px; /* Adjust width as needed */
+}
+
+
+.mat-select {
+  width: 100%; /* Make the dropdown fill the entire width of the form field */
+  font-size: 16px; /* Adjust font size as needed */
+}
+
+
