@@ -123,4 +123,21 @@
   font-size: 16px; /* Adjust font size as needed */
 }
 
+.mat-mdc-tab-group,
+.mat-mdc-tab-nav-bar {
+  --mdc-tab-indicator-active-indicator-color: #fff !important;
+  --mat-tab-header-disabled-ripple-color:  #fff !important;
+  --mat-tab-header-pagination-icon-color:  #fff !important;
+  --mat-tab-header-inactive-label-text-color:  #fff !important;
+  --mat-tab-header-active-label-text-color:  #fff !important;
+  --mat-tab-header-active-ripple-color: #fff !important;
+  --mat-tab-header-inactive-ripple-color: #fff!important;
+  --mat-tab-header-inactive-focus-label-text-color: rgba(246, 222, 7, 0.886);
+  --mat-tab-header-inactive-hover-label-text-color: rgba(246, 222, 7, 0.886);
+  --mat-tab-header-active-focus-label-text-color: #fff !important;
+  --mat-tab-header-active-hover-label-text-color: #fff !important;
+  --mat-tab-header-active-focus-indicator-color: #fff !important;
+  --mat-tab-header-active-hover-indicator-color: #fff !important;
+}
+
 
