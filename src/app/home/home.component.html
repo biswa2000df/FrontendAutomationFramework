@@ -1,0 +1,55 @@
+<!-- home.component.html -->
+
+<div class="bossWrapp">
+    <div class="fade"></div>
+    <div class="screen"></div>
+    <div class="text">
+        <div style="margin-top: -116px">
+            <h1 class="title grey-text text-lighten-3">Automation FrameWork</h1>
+        </div>
+        <div class="wrapp">
+            <h1>Hi, {{userName}}</h1>
+            <br />
+            <span></span>
+        </div>
+        <div class="wrapp">
+            <h1>Welcome to our Platform</h1>
+            <br />
+        </div>
+        <p>Which one are use to Perform an Automation Testing</p>
+        <div class="radio-group">
+            <input type="radio" id="ide" name="color" value="ide"
+                 (change)="onItemChange($event)" />
+            <label for="ide">APMOSYS IDE</label>
+            <input type="radio" id="framework" name="color" value="framework"
+            checked (change)="onItemChange($event)" />
+            <label for="framework">FRAMEWORK</label>
+        </div>
+        <div class="btnCont">
+            <button class="buttonss" (click)="startProject()">
+                <span class="textss">Start Project</span>
+                <div class="overlay">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-arrow-right btnArrow">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg>
+                </div>
+            </button>
+        </div>
+    </div>
+    <div>
+        <h1></h1>
+        <span></span>
+    </div>
+    <div class="bg"></div>
+    <img class="star1"
+        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/270939/star2.svg" />
+    <img class="star2"
+        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/270939/star2.svg" />
+    <img class="star3"
+        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/270939/star1.svg" />
+</div>

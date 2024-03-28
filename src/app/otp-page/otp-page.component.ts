@@ -83,7 +83,7 @@ export class OtpPageComponent implements OnInit {
           sessionStorage.setItem('username', res.username);
           sessionStorage.setItem('sapCode', this.userData.sapCode);
           this.isBUttonClicked = false;
-          this.router.navigate(['main-controller']);
+          this.router.navigate(['home']);
         }
         else {
           this.message = "Invalid OTP"
@@ -102,7 +102,7 @@ export class OtpPageComponent implements OnInit {
             this.tableDataService.openSnackBar(this.message);
             sessionStorage.setItem('sapCode', this.userData.sapCode);
             this.isBUttonClicked = false;
-            this.router.navigate(['main-controller']);
+            this.router.navigate(['home']);
           }
         })
     }

@@ -55,3 +55,7 @@
   padding-right: 2%;
 }
 
+::ng-deep .mat-tab-label {
+  color: #333; /* Default tab text color */
+  background-color: #f0f0f0; /* Default tab background color */
+}

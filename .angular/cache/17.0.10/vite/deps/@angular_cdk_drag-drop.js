@@ -2,26 +2,26 @@ import {
   CdkScrollableModule,
   ScrollDispatcher,
   ViewportRuler
-} from "./chunk-GCRL3KXS.js";
-import "./chunk-TR6GTFUH.js";
+} from "./chunk-RYDNQ3UV.js";
+import "./chunk-N6UPVBNW.js";
 import {
   isFakeMousedownFromScreenReader,
   isFakeTouchstartFromScreenReader
-} from "./chunk-7RD4FNXU.js";
+} from "./chunk-C7NM4WSA.js";
 import {
   _getEventTarget,
   _getShadowRoot,
   normalizePassiveListenerOptions
-} from "./chunk-G523G3BC.js";
+} from "./chunk-HWTM54WK.js";
 import {
   Directionality,
   coerceArray,
   coerceElement,
   coerceNumberProperty
-} from "./chunk-5EFZRXYA.js";
+} from "./chunk-7XWKMGA6.js";
 import {
   DOCUMENT
-} from "./chunk-HXG43FAG.js";
+} from "./chunk-D2KDYNCR.js";
 import {
   ChangeDetectorRef,
   ContentChild,
@@ -57,12 +57,12 @@ import {
   ɵɵinject,
   ɵɵloadQuery,
   ɵɵqueryRefresh
-} from "./chunk-H3X3WLUV.js";
-import "./chunk-KUOPV5YS.js";
+} from "./chunk-7VUP7FJ2.js";
+import "./chunk-BQTYKBYB.js";
 import {
   animationFrameScheduler,
   merge
-} from "./chunk-2UXUBMH3.js";
+} from "./chunk-WI6LBH4V.js";
 import {
   Observable,
   Subject,
@@ -74,7 +74,8 @@ import {
   take,
   takeUntil,
   tap
-} from "./chunk-UB6C7KF6.js";
+} from "./chunk-KDOJNZN6.js";
+import "./chunk-HSNDBVJ3.js";
 
 // node_modules/@angular/cdk/fesm2022/drag-drop.mjs
 function extendStyles(dest, source, importantProperties) {

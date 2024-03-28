@@ -31,6 +31,8 @@ import { TableDataService } from '../table-data.service';
 export class LoginPageComponent {
   message = "Invalid Username or Password!!"
   isBUttonClicked: boolean = false;
+  isSignIn: boolean = false;
+  isSignUp: boolean = true;
 
   constructor(private router: Router, private fb: FormBuilder, private authService: AuthService, private tableDataService: TableDataService) {
   }
@@ -76,10 +78,14 @@ export class LoginPageComponent {
 
   }
 
-  openExtensionTab() {
+  onSignUpClick() {
+    const container = document.getElementById('container');
+    container?.classList.add("right-panel-active");
+  }
 
-     window.open('chrome-extension://hbjkbkioeknibpgpifhffbpkogfglgmp/index.html', '_blank');
-    // this.authService.openExtensionTab('chrome-extension://hbjkbkioeknibpgpifhffbpkogfglgmp/index.html');
+  onSignInClick() {
+    const container = document.getElementById('container');
+    container?.classList.remove("right-panel-active");
   }
 
 }

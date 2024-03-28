@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { AuthService } from '../../auth.service';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,8 @@ import { AuthService } from '../../auth.service';
   imports: [MatIconModule,
     MatToolbarModule,
     MatButtonModule,
-    MatMenuModule],
+    MatMenuModule,
+    MatSidenavModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -21,6 +23,10 @@ export class HeaderComponent {
   userName: any = sessionStorage.getItem('username');
 
   constructor(private router: Router, private authService: AuthService) { }
+
+  gotoHome() {
+    this.router.navigate(['home']);
+  }
 
   gotoDataSheet() {
     this.router.navigate(['data-sheet']);

@@ -12,10 +12,21 @@
   <div class="example-button-row goto-btn1">
     <button mat-raised-button color="primary" (click)="gotoDataSheet()">Go to Data Sheet</button>
   </div> -->
+
   <div class="example-button-row goto-btn1">
-    <button mat-raised-button color="primary" (click)="getApmosysIDE()">Apmosys IDE</button>
+    <button mat-raised-button color="primary" (click)="getConsole()">CONSOLE</button>
   </div>
 
+ <!-- results.component.html -->
+
+<!-- <button mat-button (click)="toggleConsoleOutput()">Toggle Console Output</button> -->
+
+<div *ngIf="showConsoleOutput">
+  <div *ngIf="consoleOutput">
+    <div *ngFor="let line of consoleOutput">{{ line }}</div>
+  </div>
+  <div *ngIf="!consoleOutput">No console output available.</div>
+</div>
 
 
   <div class="example-button-row goto-btn2">

@@ -42,6 +42,10 @@ export class TableDataService {
     return this.http.get(this.baseUrl + '/AutomationSheetData/openApmosys_IDE');
   }
 
+  CONSOLE() {
+    return this.http.get(this.baseUrl + '/AutomationSheetData/jarConsoleOutput');
+  }
+  
   // Method to upload file
   uploadFile(file: File): Observable<any> {
     const formData: FormData = new FormData();
@@ -120,7 +124,6 @@ export class TableDataService {
     config.panelClass = 'mycsssnackbartest';
     config.duration = 3000;
     config.verticalPosition = 'top';
-
     this.snackBar.open(message, '', config);
   }
 }

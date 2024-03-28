@@ -1,0 +1,371 @@
+/* Styles generated from SCSS */
+html {
+    font-size: 1.063em;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: #1c2d4d;
+    padding: 0 !important;
+    height: 100%;
+}
+
+body {
+    font-family: "Source Sans Pro", serif;
+    font-weight: 400;
+    line-height: 1.45;
+    color: #333;
+    padding: 8px !important;
+    height: 100vh;
+    width: 100vw;
+}
+
+p {
+    margin-bottom: 1.3em;
+}
+
+a {
+    color: #1c2d4d;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 1.414em 0 0.5em;
+    font-weight: inherit;
+    line-height: 1.2;
+}
+
+p {
+    margin: 1.414em 0 0.5em;
+    font-weight: inherit;
+    line-height: 1;
+    margin-top: 10;
+    font-size: 1.998em;
+    color: #fefefe;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 3.998em;
+}
+
+h2 {
+    font-size: 2.827em;
+}
+
+h3 {
+    font-size: 1.999em;
+}
+
+h4 {
+    font-size: 1.414em;
+}
+
+small,
+.font_small {
+    font-size: 0.707em;
+}
+
+sup {
+    vertical-align: super;
+    font-size: 40%;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+ss:focus {
+    outline: none;
+}
+
+.bossWrapp {
+    overflow: hidden;
+    background: #fefefe;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative;
+}
+
+.bossWrapp .bg {
+    opacity: 0;
+    content: "";
+    width: 100%;
+    left: 1px;
+    right: 0px;
+    height: 100%;
+    box-shadow: inset 0px 0px 0px 0px #fefefe;
+    position: absolute;
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/270939/heroBg-compressor.png");
+    background-size: cover;
+    background-repeat: none;
+    background-position: center top;
+    padding-top: 20px;
+}
+
+.star1,
+.star2,
+.star3 {
+    position: absolute;
+    opacity: 0;
+    z-index: 9991;
+}
+
+.star1 {
+    bottom: 5vh;
+    left: 10vw;
+    height: 250px;
+    width: 250px;
+}
+
+.star2 {
+    bottom: 30vh;
+    right: 10vw;
+    height: 150px;
+    width: 150px;
+    mix-blend-mode: color-burn;
+}
+
+.star3 {
+    bottom: 70vh;
+    left: 40vw;
+    height: 100px;
+    width: 100px;
+    mix-blend-mode: hard-light;
+}
+
+.text {
+    z-index: 999999191;
+    position: absolute;
+    top: 30vh;
+    left: 466px;
+}
+
+.text .wrapp {
+    overflow: hidden;
+    height: 72px;
+    /* display: inline-flex; */
+}
+
+.text .wrapp h1 {
+    opacity: 0;
+    transform: translatey(105px);
+    font-size: 3.998em;
+    color: #fefefe;
+    font-weight: 700;
+}
+
+.text .wrapp span {
+    transform: translatey(100px);
+    font-size: 3.998em;
+    opacity: 0;
+}
+
+.text .wrapp2 {
+    overflow: hidden;
+    height: 70px;
+}
+
+.text .wrapp2 h2 {
+    opacity: 1;
+    font-size: 1.414em;
+    color: #fefefe;
+    margin: 1.414em 0 0.5em;
+    font-weight: 300;
+}
+
+.screen {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0px;
+    bottom: 0;
+    background: #1c2d4d;
+    z-index: 99991;
+}
+
+.title,
+.footer-copyright a {
+    font-family: "Architects Daughter", cursive;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #fefefe;
+    /* position: absolute; */
+    /* top: 0; */
+    margin-bottom: 10%;
+}
+
+
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: -20%;
+    margin-top: 2%;
+    gap: 10px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    position: relative;
+    padding-left: 30px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+label:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid #fff;
+    transition: background-color 0.3s;
+}
+
+input[type="radio"]:checked+label:before {
+    background-color: #fff;
+}
+
+input[type="radio"]:focus+label {
+    color: #ff6f00;
+}
+
+input[type="radio"]:checked+label {
+    color: #ff6f00;
+}
+
+/* Neon Style */
+input[type="radio"]+label:before {
+    box-shadow: 0 0 10px #ff6f00;
+}
+
+input[type="radio"]:checked+label:before {
+    box-shadow: 0 0 10px #ff6f00, 0 0 20px #ff6f00, 0 0 30px #ff6f00;
+}
+
+input[type="radio"]:hover+label:before {
+    background-color: #ff6f00;
+}
+
+input[type="radio"]:focus+label:before {
+    background-color: #ff6f00;
+}
+
+.btnCont {
+    justify-content: center;
+    align-items: center;
+    /* display: flex; */
+    display: grid;
+    margin-right: 120px;
+    margin-top: 70px;
+    /* margin-left: -50px; */
+}
+
+.btnArrow {
+    position: relative;
+    right: 10px;
+}
+
+.buttonss {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 500;
+    width: 240px;
+    height: 50px;
+    border-radius: 9999rem;
+    background: #efefef;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    &>span.textss {
+        color: #000001;
+        width: 100%;
+        font-size: large;
+        text-align: center;
+        padding-block: 12px;
+        font-weight: bold;
+        padding-left: -10px;
+        z-index: 2;
+        transition: all 200ms ease;
+        margin-top: -10%;
+    }
+
+    .textss {
+        /* position: absolute; */
+        color: #fc0000;
+        width: 100%;
+        text-align: left;
+        padding-block: 12px;
+        /* padding-left: 24px; */
+        z-index: 2;
+        transition: all 200ms ease;
+        /* margin-top: -20%; */
+    }
+
+    &>div.overlay {
+        color: #ededed;
+        width: 48px;
+        height: calc(100% - 2px);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 5px;
+        border-radius: inherit;
+        background: #6861d1;
+        position: absolute;
+        right: 1px;
+        z-index: 1;
+        transition: all 400ms ease;
+    }
+
+    &:is(:hover, :focus) {
+        &>span.textss {
+            color: #ededed;
+        }
+
+        &>div.overlay {
+            width: calc(100% - 2px);
+            transition: width 200ms ease;
+        }
+    }
+}
+

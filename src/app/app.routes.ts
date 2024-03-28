@@ -6,6 +6,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { OtpPageComponent } from './otp-page/otp-page.component';
 import { AuthGaurdService } from './auth-gaurd.service';
+import { HomeComponent } from './home/home.component';
 
 
 export const routes: Routes = [
@@ -14,5 +15,6 @@ export const routes: Routes = [
   { path: 'otp-validation', component: OtpPageComponent },
   { path: 'main-controller', component: TableComponent, canActivate: [AuthGaurdService] },
   { path: 'data-sheet', component: DataTableComponent, canActivate: [AuthGaurdService] },
-  { path: 'results', component: ResultsComponent, canActivate: [AuthGaurdService] }
+  { path: 'results', component: ResultsComponent, canActivate: [AuthGaurdService] },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGaurdService] }
 ];

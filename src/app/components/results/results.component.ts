@@ -20,6 +20,8 @@ import { HttpErrorResponse } from '@angular/common/http';
   imports: [MatTreeModule, MatButtonModule, MatIconModule, MatProgressBarModule, CommonModule, HeaderComponent]
 })
 export class ResultsComponent implements OnInit {
+  consoleOutput: string[] | null = null;
+  showConsoleOutput = false;
 
   treeData: any = [];
   htmlFileData: any;
@@ -94,17 +96,38 @@ export class ResultsComponent implements OnInit {
 
   }
 
-  getApmosysIDE() {
-    this.tableDataService.Apmosys_IDE().subscribe(
-      (res: any) => { // Explicitly specify the type of 'res'
-        console.log("Console Value:", res);
+  // toggleConsoleOutput() {
+   
+  //     this.getConsole();
+  //   } 
+  // }
+
+  getConsole() {
+    if (!this.showConsoleOutput) {
+    this.tableDataService.CONSOLE().subscribe(
+      (res: any) => {
+        if (res && res.message) {
+          console.log("Console Value:", res.message);
+          this.consoleOutput = res.message;
+        } else {
+          console.error("Error fetching console value:", res);
+        }
       },
-      (error: HttpErrorResponse) => { // Specify HttpErrorResponse type for error parameter
+      (error: any) => {
         console.error("Error fetching console value:", error);
       }
     );
+    }else {
+      this.closeConsoleOutput();
+    }
+    this.showConsoleOutput = !this.showConsoleOutput;
   }
 
+  closeConsoleOutput() {
+    this.consoleOutput = null;
+  }
+
+  
 
   updateTimer() {
     console.log("progress Value", this.progressValue);
