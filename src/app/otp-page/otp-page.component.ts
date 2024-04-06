@@ -79,7 +79,7 @@ export class OtpPageComponent implements OnInit {
         if (res) {
           this.message = res?.message
           sessionStorage.setItem('SessionID', res.sessionId);
-          this.tableDataService.openSnackBar(this.message);
+          // this.tableDataService.openSnackBar(this.message);
           sessionStorage.setItem('username', res.username);
           sessionStorage.setItem('sapCode', this.userData.sapCode);
           this.isBUttonClicked = false;
@@ -98,8 +98,8 @@ export class OtpPageComponent implements OnInit {
             this.isBUttonClicked = false;
           }
           else if (err.status == 200) {
-            this.message = "Welcome user!!"
-            this.tableDataService.openSnackBar(this.message);
+            // this.message = "Welcome user!!"
+            // this.tableDataService.openSnackBar(this.message);
             sessionStorage.setItem('sapCode', this.userData.sapCode);
             this.isBUttonClicked = false;
             this.router.navigate(['home']);
